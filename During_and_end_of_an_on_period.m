@@ -21,7 +21,7 @@ V_s=1;
 V=A_n + V_s.*cos(Omega_c.*n.*T);
 I=zeros(size(t));
 P=zeros(size(t));
-for ii =0:length(t)
+for ii =0.01:length(t)
     if any(t < tau_on)
         I(ii)=C.*((V - V_s.*cos(Omega_c.*n.*T)).*((-1/(2.*tau)).*e^(-t/2.*tau).*cos(Omega_d.*t) - Omega_d.*sin(Omega_d.*t).*e^(-t/2.*tau)));
         P(ii)=I^2.*R;
