@@ -26,7 +26,7 @@ for jj = 1:length(n)
     for ii =1:length(t)
             W(jj) = ((p.^(-1).*exp(1i.*(Omega_c.*T)) - p.^(-n(jj)).*exp(1i.*(Omega_c.*n(jj).*T)))/(1-p.^(-1).*exp(1i.*(Omega_c.*T)))) + ((p.^(-1).*exp(-1i.*(Omega_c.*T)) - p.^(-n(jj)).*exp(-1i.*(Omega_c.*n(jj).*T)))/(1-p.^(-1).*exp(-1i.*(Omega_c.*T))));
             V(jj)= p.^(n(jj)).*V_o + (p.^(n(jj))- p.^(n(jj)+1)).*(V_s/2).*(W(jj));
-        if any(t < tau_on)
+        if (t(ii) < tau_on)
             I(ii,jj)=C.*((V(jj) - V_s.*cos(Omega_c.*n(jj).*T)).*((-1/(2.*tau)).*e^(-t(ii)/2.*tau).*cos(Omega_d.*t(ii)) - Omega_d.*sin(Omega_d.*t).*e^(-t(ii)/2.*tau)));
             P(ii,jj)=I(ii,jj)^2.*R_L;
         else
