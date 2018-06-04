@@ -35,11 +35,8 @@ for jj = 1:length(n)
     end
 end
 plot(t,P);
-title('Power during and at the end of an ON period');
-xlabel('Time(s)');
-ylabel('Power(W)');
-xlim auto
-ylim auto
+xlim auto;
+ylim auto;
 
 
 
